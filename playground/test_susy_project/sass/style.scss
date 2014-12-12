@@ -1,0 +1,36 @@
+// Screen
+// ======
+
+@import "grids";
+
+.wrap {
+  @include container(1140px);
+}
+
+
+.content {
+  margin-top: 10vh;
+  height: 80vh;
+  background: rgba(113, 218, 210, 0.8);
+}
+
+.sidebar {
+  margin-top: 10vh;
+  height: 40vh;
+  background: rgba(250, 231, 179, 0.8);
+}
+
+h2 {
+  padding: 1rem 0;
+  text-align: center;
+  color: #555;
+}
+
+
+.content {
+  @include span(3 of 4);
+}
+
+.sidebar {
+  @include span(1 of 4 last);
+}
