@@ -1,0 +1,148 @@
+// ==========
+// LAYOUTS
+// ==========
+
+$susy: (
+  columns: 12,
+  gutter-position: inside,
+  global-box-sizing: border-box,
+  debug: (image: hide)
+  );
+
+// Here are the medium and large breakpoints used in this map.
+$breakpoints: (
+  med: 770px,
+  large: 1080px
+  );
+
+.wrap {
+  @include container(1140px);
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+// About
+
+.l-sidebar--about {
+  @include bp(med) {
+    @include span(3);
+  }
+}
+
+.l-content--about {
+  @include bp(med) {
+    @include span(9);
+  }
+}
+
+// Projects
+// Note here how we don't need to declare any classes on the different list items. We can specify them with CSS
+
+.projects {
+  li {
+    margin-bottom: 1em;
+    @include bp(med) {
+      @include span(4);
+      margin-bottom: gutter() * 2;
+      &:nth-child(5n+1) {
+        @include span(7);
+      }
+      &:nth-child(5n+2) {
+        @include span(5);
+      }
+      &:nth-child(5n+3) {
+        clear: both;
+      }
+    }
+  }
+  a {
+    display: block;
+    height: 10em;
+    background-size: cover;
+    background-position: center center;
+    @include bp(med) {
+      height: 20em;
+    }
+  }
+}
+
+.l-sidebar--integrate {
+  @include bp(large) {
+    @include span(4);
+  }
+}
+
+.l-content--integrate {
+  @include bp(large) {
+    @include span(7);
+    margin-left: span(1);
+  }
+}
+
+// Footer
+
+.l-company {
+  @include bp(med) {
+    @include span(4);
+  }
+}
+
+.l-contact {
+  @include bp(med) {
+    @include span(2);
+    margin-left: span(4);
+  }
+}
+
+.l-address {
+  @include bp(med) {
+    @include span(2 last);
+  }
+}
+
+// Miscellaneous styles
+
+body {
+  @include bp(med) {
+    padding: 2em;
+    background: #323232;
+  }
+}
+
+.site-header {
+  line-height: 3em;
+  background: #2A2A2A;
+  color: white;
+  a {
+    color: white;
+  }
+}
+
+.logo {
+  float: left;
+}
+
+nav {
+  float: right;
+  li {
+    float: left;
+    padding: 0 1em;
+  }
+}
+
+section {
+  padding: 3em 0;
+  background: #DCDDD3;
+  &:nth-child(2n + 1) {
+    background: #ECEDE2;
+  }
+  header {
+    margin-bottom: 1em;
+  }
+}
+
+.site-footer {
+  padding: 3em 0;
+  background: #2a2a2a;
+  color: white;
+}

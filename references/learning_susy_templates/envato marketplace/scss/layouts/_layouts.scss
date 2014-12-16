@@ -1,0 +1,185 @@
+// ==========
+// LAYOUTS
+// ==========
+
+// Here are the medium and large breakpoints used in this map.
+$breakpoints: (
+  med: 580px,
+  large: 1024px
+  );
+
+$susy: (
+  columns: 4,
+  global-box-sizing: border-box,
+  debug: (image: hide)
+  );
+
+// Creating the container
+.wrap {
+  @include container(1140px);
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+// Creating Marketplaces with gallery mixin
+.marketplaces {
+  @include cf;
+  li {
+    margin-bottom: 1em;
+    @include bp(med) {
+      @include nested(8) {
+        @include gallery(4);
+      }
+    }
+
+    @include bp(large) {
+      @include nested(12) {
+        @include gallery(3);
+      }
+    }
+  }
+}
+
+// featured items with gallery mixin
+.featured--items {
+  @include cf;
+  li {
+    @include bp(med) {
+      @include nested(8) {
+        @include gallery(4);
+      }
+    }
+
+    @include bp(large) {
+      @include nested(12) {
+        @include gallery(4);
+      }
+    }
+  }
+}
+
+// featured people with gallery mixin
+.featured--people {
+  @include cf;
+  li {
+    @include bp(med) {
+      @include nested(8) {
+        @include gallery(4);
+      }
+    }
+
+    @include bp(large) {
+      @include nested(12) {
+        @include gallery(6);
+      }
+    }
+  }
+  @include bp(large) {
+    @include nested(6) {
+      img {
+        float: left;
+        width: span(2);
+      }
+      .people__info {
+        margin-left: span(2 wide);
+      }
+    }
+  }
+}
+
+// Footer layout with span mixins
+// Footer 1 and 2 were 100% on small and med. Footer 3 is display none.
+//
+.site-footer {
+  @include bp(large) {
+    @include nested(12) {
+      .footer--group1 {
+        @include span(3);
+      }
+      .footer--group2 {
+        @include span(3);
+      }
+      .footer--group3 {
+        @include span(6 last);
+      }
+    }
+  }
+}
+
+// Misc Styles
+section {
+  padding: 3em 0;
+  .section__header,
+  .section__desc {
+    text-align: center;
+  }
+}
+
+.button {
+  display: inline-block;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 80%;
+  line-height: 2em;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.button--green {
+  @extend .button;
+  background: #29BB9C;
+  color: white;
+}
+
+.button--black {
+  @extend .button;
+  background: #232323;
+  color: #FDF2AD;
+}
+
+.site-header {
+  background: #232323;
+  color: white;
+  text-align: center;
+}
+
+.hero {
+  background: #28AC90;
+  text-align: center;
+  color: white;
+}
+
+.marketplaces {
+  background: #F4F4F4;
+  text-align: center;
+  li {
+    background: white;
+    padding: 1em 0.5em;
+    border-radius: 5px;
+  }
+  .button--green {
+    display: block;
+  }
+}
+
+.featured--items {
+  background: #DDDDDD;
+  text-align: center;
+}
+
+.featured--people {
+  background: #7EC4C3;
+  text-align: center;
+  @include bp(large) {
+    text-align: left;
+  }
+
+  img {
+    border-radius: 100%;
+  }
+}
+
+.site-footer {
+  background: #333333;
+  color: white;
+}

@@ -1,0 +1,31 @@
+{
+  "name": "zl-sass-starter",
+  "version": "0.0.1",
+  "authors": [
+    "Zell Liew <zellwk@gmail.com>"
+  ],
+  "description": "A Sass Starter Template built with Susy in mind. Allows for easy responsive design.",
+  "main": "",
+  "keywords": [
+    "Sass",
+    "Susy",
+    "Responsive"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "breakpoint-sass": "~2.5.0",
+    "normalize-scss": "~3.0.1",
+    "adaptive-placeholders": "*",
+    "hmps-animate-scss": "~1.0.1",
+    "vertical-rhythms-without-compass": "~1.0.1"
+  }
+}

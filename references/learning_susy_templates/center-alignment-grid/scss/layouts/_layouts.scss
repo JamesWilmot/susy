@@ -1,0 +1,73 @@
+// ==========
+// LAYOUTS
+// ==========
+
+$susy: (
+  columns: 12,
+  gutter-position: inside,
+  global-box-sizing: border-box,
+  debug: (image: hide));
+
+// Here are the medium and large breakpoints used in this map.
+$breakpoints: (
+  med: 770px, large: 1080px
+  );
+
+.wrap {
+  @include container(960px);
+}
+
+.susy-grid {
+  // This centers the susy-grid__item(s) within.
+  text-align: center;
+}
+.susy-grid__item {
+  // Cannot float the element, hence we use the
+  // span function instead of the mixin.
+  width: span(3);
+  padding-left: gutter();
+  padding-right: gutter();
+  // The trick here is to use inline-block to center to center-align every susy-grid__item
+  display: inline-block;
+  // Margin left must be given to counter to extra space left by inline-block
+  margin-left: -4px;
+}
+
+// Misc Styles
+
+.site-header {
+  @include cf;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  line-height: 3em;
+  background: #333333;
+  color: white;
+  a {
+    color: white;
+  }
+  .logo {
+    float: left;
+  }
+  nav {
+    @include cf;
+    float: right;
+    li {
+      float: left;
+      margin-left: 1em;
+    }
+  }
+}
+
+h2 {
+  text-align: center;
+  padding: 1.5em 0;
+}
+
+.susy-grid-item {
+  background: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 1em;
+  @include bp(med) {
+    height: 9em;
+  }
+}

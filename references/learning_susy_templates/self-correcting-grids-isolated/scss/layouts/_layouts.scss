@@ -1,0 +1,83 @@
+// ==========
+// LAYOUTS
+// ==========
+
+// This layout
+//  - self corrects the last few items in the
+//    grids to help maintain perfect grid
+//    alignment
+//  - This only works isolated grids
+//  - Does not work with gutter-position:inside
+//
+// Layout inspired by http://codepen.io/heydon/pen/bcdrl
+
+$susy: (
+  columns: 12,
+  global-box-sizing: border-box,
+  debug: (image: hide));
+
+.wrap {
+  @include container(960px);
+}
+
+.susy-grid__item {
+  @include gallery(3);
+  margin-bottom: gutter();
+}
+
+$cols: 4;
+
+@for $i from 1 through $cols {
+  // last row of 4n+1
+  .susy-grid__item:nth-child(#{$cols}n+1):nth-last-child(#{$i}) {
+    @include span(isolate (susy-get(columns) / $i) first break);
+
+    // Last row of 4n + 2, 4n + 3...
+    @for $j from 2 through $cols - 1 {
+      & ~ .susy-grid__item:nth-child(#{$cols}n+#{$j}) {
+        @include span(isolate (susy-get(columns) / $i) at (12 / $i * ($j - 1) + 1) nobreak);
+      }
+    }
+  }
+}
+
+// Misc Styles
+
+.site-header {
+  @include cf;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  line-height: 3em;
+  background: #333333;
+  color: white;
+  a {
+    color: white;
+  }
+  .logo {
+    float: left;
+  }
+  nav {
+    @include cf;
+    float: right;
+    li {
+      float: left;
+      margin-left: 1em;
+    }
+  }
+}
+
+h2 {
+  text-align: center;
+  padding: 1.5em 0;
+}
+
+.susy-grid-item {
+  background: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 1em;
+}
+
+.grid-item {
+  height: 5em;
+  background: #f2f2f2;
+}

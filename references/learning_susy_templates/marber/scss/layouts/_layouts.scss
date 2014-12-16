@@ -1,0 +1,190 @@
+// ==========
+// LAYOUTS
+// ==========
+
+// Here are the medium and large breakpoints used in this map.
+$breakpoints: (med: 770px, large: 1100px);
+
+$small: (columns: 1 1.68);
+$med: (columns: 1.68 1 2.68);
+$large: (columns: 2.68 1.68 1 4.502);
+
+$susy: (
+  output: isolate,
+  gutters: 0,
+  container: 1100px,
+  global-box-sizing: border-box,
+  debug: (image: hide)
+  );
+
+@include layout($small);
+
+// No need to use the $contexts map as there are no second level nested elements in this layout example.
+// $contexts: () !default;
+
+// Create the container,
+// Changing the grids on medium and large breakpoints
+// with the help of susy-breakpoint mixin.
+
+.wrap {
+  @include container;
+  padding-left: 3em;
+  padding-right: 3em;
+  @include susy-breakpoint(map-get($breakpoints, med), $med) {
+    @include show-grid;
+  }
+
+  @include susy-breakpoint(map-get($breakpoints, large), $large) {
+    padding-left: 0;
+    padding-right: 0;
+    @include show-grid;
+  }
+}
+
+// Layout Styles
+
+// hero
+.hero h1 {
+  // hero h1 takes up last 2 columns on med
+  @include susy-breakpoint(map-get($breakpoints, med), $med) {
+    @include span(2 last);
+  }
+
+  // hero h1 takes up last 3 columns on med
+  @include susy-breakpoint(map-get($breakpoints, large), $large) {
+    @include span(3 last);
+  }
+}
+
+.divider--header h2 {
+  // Takes up last column on med
+  @include susy-breakpoint(map-get($breakpoints, med), $med) {
+    @include span(1 last);
+  }
+
+  // Takes up last 2 column on large
+  @include susy-breakpoint(map-get($breakpoints, large), $large) {
+    @include span(2 last);
+  }
+}
+
+article {
+
+  // Uses margin-left of
+  // 1 column on small,
+  // 2 columns on med,
+  // 2 columns on large
+  //
+  // to push .text into the correct width
+  // without using isoalte. This is because we
+  // need a way to give a margin bottom before
+  // pullquotes.
+  .text {
+    margin-left: span(1);
+    margin-bottom: 1em;
+    @include susy-breakpoint(map-get($breakpoints, med), $med) {
+      margin-left: span(2);
+    }
+
+    @include susy-breakpoint(map-get($breakpoints, large), $large) {
+      margin-left: span(2);
+    }
+  }
+
+  // Text--narrow takes up only the last column on large, hence span(3) is used for margin-left.
+  .text--narrow {
+    @include susy-breakpoint(map-get($breakpoints, large), $large) {
+      margin-left: span(3);
+    }
+  }
+
+  // Creates a quote area. Within the quote area,
+  // q takes up only the last column on all 3
+  // breakpoints
+  .pullquote {
+    @include cf;
+    q {
+      @include span(1 last);
+      @include susy-breakpoint(map-get($breakpoints, med), $med) {
+        @include span(1 last);
+      }
+
+      @include susy-breakpoint(map-get($breakpoints, large), $large) {
+        @include span(1 last);
+      }
+    }
+  }
+  // Aside are classes for the images in this layout.
+  // Isolate is used to float and position the following:
+  //
+  // image 1
+  // -----
+  // takes up one column on all 3 breakpoints,
+  // - located on first column on all breakpoints
+  //
+  // image 2
+  // -----
+  // - takes up one column on all 3 breakpoints,
+  // - located at first column on small and med,
+  // - located on 3rd column on large
+  .aside {
+    @include span(1 first);
+    padding-right: 2em;
+    @include susy-breakpoint(map-get($breakpoints, med), $med) {
+      @include span(1 first);
+      padding-right: 0;
+    }
+
+    @include susy-breakpoint(map-get($breakpoints, large), $large) {
+      @include span(1 first);
+    }
+  }
+  .aside--2 {
+    @include susy-breakpoint(map-get($breakpoints, large), $large) {
+      @include span(1 at 2);
+    }
+  }
+}
+
+// Misc Styles
+
+body {
+  background: #FFFFFF;
+}
+
+.site-header {
+  border-bottom: 1px solid #CCCCCC;
+  color: #74A133;
+  text-align: center;
+}
+
+.hero {
+  color: #333333;
+  padding: 3em 0;
+}
+
+.divider--header {
+  background: #74A133;
+  color: white;
+  line-height: 2em;
+}
+
+.pullquote {
+  background: #364A17;
+  padding: 1em 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+article {
+  background: #1C270C;
+  color: #D2D2CB;
+  padding: 2em 0;
+}
+
+p {
+  margin-bottom: 0;
+  &:first-letter {
+    margin-left: 1em;
+  }
+}

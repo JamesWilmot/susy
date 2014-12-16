@@ -1,0 +1,118 @@
+// ==========
+// LAYOUTS
+// ==========
+
+$susy: (
+  columns: 12,
+  global-box-sizing: border-box,
+  debug: (image: hide)
+  );
+
+// Here are the medium and large bps used in this map.
+$breakpoints: (
+  med: 768px,
+  large: 990px
+  );
+
+.wrap {
+  @include container(1140px);
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.content {
+  @include bp(large)  {
+    @include span(8);
+
+  }
+}
+
+.sidebar {
+  display: none;
+  @include bp(large) {
+    display: block;
+    @include span(4 last);
+  }
+}
+
+// parent = content
+.featured {
+  a {
+    position: relative;
+    display: block;
+    img {
+      // removes extra spaces from inline-block
+      display: block;
+    }
+    .featured__text {
+      // places featured text at bottom of image, overlapping it.
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+// parent = content
+.top-news {
+  @include bp(med) {
+    @include span(9 last);
+  }
+  @include bp(large) {
+    @include span(6 of 8 last);
+  }
+}
+
+// parent = content
+.drilldowns {
+  @include bp(med) {
+    @include span(3);
+  }
+  @include bp(large) {
+    @include span(2 of 8);
+  }
+}
+
+
+
+// Misc Styles
+
+.widget--sidebar {
+  border: 1px solid #ccc;
+  height: 10em;
+  text-align: center;
+  padding: 3em;
+}
+
+.featured__text {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  color: white;
+  text-align: center;
+}
+
+.drilldowns {
+  background: #F2F2F2;
+  text-align: center;
+  .drilldowns__header {
+    background: #ED1C24;
+  }
+  .drilldowns__list-item {
+    margin: 1em;
+  }
+}
+
+.top-news {
+  ul {
+    @include cf;
+  }
+  &__list-item {
+    @include cf;
+    padding: 1.5em 0;
+    border-bottom: 3px solid #ccc;
+  }
+  &__image {
+    float: right;
+  }
+}

@@ -1,0 +1,146 @@
+// ==========
+// LAYOUTS
+// ==========
+
+$susy: (
+  columns: 3,
+  gutters: 1/9,
+  global-box-sizing: border-box,
+  debug: (image: hide)
+  );
+
+// Here are the medium and large breakpoints used in this map.
+$breakpoints: (
+  med: 770px,
+  large: 1080px
+  );
+
+$med: 8;
+$large: 12;
+
+.wrap {
+  @include container(1140px);
+}
+
+// Store information
+.store-info {
+  @include cf;
+  margin-bottom: 1.5em;
+  @include bp(large) {
+    @include nested($large) {
+      @include span(3);
+      margin-bottom: 0;
+    }
+  }
+
+  img {
+    @include span(1) {
+      @include bp(large) {
+        width: 100%;
+      }
+    }
+  }
+  .store-info__text {
+    @include span(2 last);
+    @include bp(large) {
+      width: 100%;
+    }
+  }
+}
+
+// store section
+.store {
+  @include cf;
+  @include bp(large) {
+    @include nested($large) {
+      @include span(9 last);
+    }
+  }
+}
+
+// store__list-item
+// parent = store
+.store__list-item {
+  @include gallery(1);
+  margin-bottom: gutter();
+  @include bp(large) {
+    @include nested(9) {
+      @include gallery(3);
+      margin-bottom: gutter();
+    }
+  }
+}
+
+// about section
+.about {
+  @include bp(large) {
+    @include nested($large) {
+      @include span(9 last);
+    }
+  }
+}
+
+// Misc Styles
+
+.site-header {
+  @include cf;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  line-height: 3em;
+  background: #333333;
+  color: white;
+  a {
+    color: white;
+  }
+  .logo {
+    float: left;
+  }
+  nav {
+    @include cf;
+    float: right;
+    li {
+      float: left;
+      margin-left: 1em;
+    }
+  }
+}
+
+.store-info {
+  background: #f2f2f2;
+  img {
+    display: block;
+  }
+  .store-info__text {
+    padding: 0.75em 0.5em;
+  }
+}
+
+.store__list-item {
+  background: #dfdfdf;
+  .store__item-info {
+    padding: 0.75em 0.5em;
+  }
+}
+
+.about {
+  .about__content {
+    background: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 3rem;
+  }
+  .about__contact h2 {
+    text-align: center;
+    padding: 0.5em;
+  }
+}
+
+.button {
+  display: block;
+  margin-bottom: 0.5em;
+  line-height: 3em;
+  background: #332333;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+}

@@ -1,0 +1,119 @@
+// ==========
+// LAYOUTS
+// ==========
+
+$susy: (
+  columns: 12,
+  gutters: 0,
+  global-box-sizing: border-box,
+  debug: (image: hide)
+  );
+
+section {
+  @include container;
+  // removes responsive below 1200px
+  min-width: 1200px;
+}
+
+.hero {
+  .section__content {
+    width: span(6);
+    @include isolate(3);
+    margin-top: 6em;
+  }
+}
+
+.work-band {
+  .section__images {
+    @include cf;
+    margin-bottom: 0;
+    li {
+      @include span(2);
+    }
+    img {
+      display: block;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.imagination {
+  .section__content {
+    @include span(6);
+    height: 80vh;
+    padding: span(1);
+  }
+  .section__image {
+    @include span(6);
+    height: 80vh;
+  }
+}
+
+.magazine {
+  height: 80vh;
+  .section__content {
+    width: span(4);
+    @include isolate(4);
+    padding-top: 4em;
+  }
+  p {
+    // pushes p 1 column left of title.
+    margin-left: span(1 of 4);
+  }
+}
+
+.philosophy {
+  .section__images {
+    @include span(6);
+    li {
+      @include span(3 of 6);
+      height: 40vh;
+    }
+  }
+  .section__content {
+    @include span(6);
+    padding: span(1);
+  }
+}
+
+.videos {
+  ul {
+    margin-bottom: 0;
+  }
+  img {
+    display: block;
+    margin-bottom: 0;
+  }
+  .section__main-video {
+    @include span(9);
+  }
+  .section__extra-videos {
+    @include span(3);
+  }
+}
+
+.about {
+  @extend .imagination;
+}
+
+// Misc Styles
+
+.full-size-background-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero .section__content {
+  color: white;
+  height: 80vh;
+}
+
+.imagination .section__content {
+  background: #333;
+  color: #fff;
+}
+
+.magazine .section__content {
+  color: #fff;
+}

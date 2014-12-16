@@ -1,0 +1,90 @@
+// ==========
+// LAYOUTS
+// ==========
+
+// Here are the medium and large breakpoints used in this map.
+$breakpoints: (med: 750px, large: 1130px);
+
+// Static grids requires:
+// 1. math to be set to static
+// 2. column width to be set to a unit.
+$susy: (
+  columns: 8,
+  gutter-position: split,
+  math: static,
+  gutters: 1 / 8,
+  column-width: 80px,
+  global-box-sizing: border-box,
+  debug: (image: hide)
+  );
+
+// Creating the container, container width changes at med and large.
+// When below med, container is a full 100% width
+.wrap {
+  @include bp(med) {
+    @include container(8);
+  }
+  @include bp(large) {
+    @include container(12);
+  }
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.post-preview {
+  margin-bottom: 1em;
+  @include bp(med) {
+    @include span(4);
+    height: 20em;
+    margin-bottom: gutter()*2;
+  }
+
+  // Every 1st, 6th, 11th will become a 8 grid item only between medium and large breakpoints
+  // => nth-child(5n+1)
+  @include breakpoint(map-get($breakpoints, med) map-get($breakpoints, large)) {
+    &:nth-child(5n+1) {
+      @include span(8);
+    }
+  }
+
+  @include bp(large) {
+    // Every 1, 11, 21, 31, 41 item will be 8 grid item
+    // => nth-child(10n+1)
+    // Every 7, 17, 27, 37 item will be 8 grid item
+    // => nth-child(10n+7)
+    &:nth-child(10n+1),
+    &:nth-child(10n+7) {
+      @include span(8);
+    }
+  }
+}
+
+// Misc Styles
+
+body {
+  background: #42446B;
+}
+
+.site-header {
+  background: #5B6088;
+  line-height: 2em;
+  text-align: center;
+  color: white;
+  border-bottom: 1px solid black;
+}
+
+.site-inner {
+  margin-top: 6em;
+}
+
+.post-preview {
+  background: #59608D;
+  color: white;
+  padding: 2em;
+}
+

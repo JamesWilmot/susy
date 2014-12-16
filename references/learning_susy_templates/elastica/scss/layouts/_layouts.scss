@@ -1,0 +1,104 @@
+// ==========
+// LAYOUTS
+// ==========
+
+$susy: (
+  columns: 12,
+  output: isolate,
+  global-box-sizing: border-box,
+  debug: (image: hide)
+  );
+
+// Here are the medium and large breakpoints used in this map.
+$breakpoints: (med: 770px, large: 1080px);
+
+body {
+  // responsive from 1024px and up
+  min-width: 1024px;
+}
+
+nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 15em;
+  overflow-y: scroll;
+}
+
+.main {
+  margin-left: 15em;
+}
+
+.wrap {
+  @include container(1800px);
+  padding: 4em 6em;
+}
+
+.dashboard__list {
+  @include cf;
+}
+
+.dashboard__item {
+  position: relative;
+  height: 0;
+  @include gallery(4);
+  // padding bottom is used to obtain the height of the square instead because padding % is relative to parent width
+  // Since width = span(4) and padding bottom = span(4), height => span(4) if content height is 0.
+  padding-bottom: span(4);
+  margin-bottom: gutter();
+  &:nth-child(7) {
+    @include span(12 first);
+    padding-bottom: span(4);
+  }
+  .dashboard__item-inner {
+
+    // Content height is 0, so inner item must be positioned absolutely to items within. This forms the boundary of the element
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// Misc Styles
+
+body {
+  background: #EEF1F1;
+}
+
+nav {
+  background: #30333A;
+  li {
+    text-align: center;
+    background: #262930;
+    &:hover,
+    &:active,
+    &:focus {
+      background: #165E7B;
+      a {
+        color: white;
+      }
+    }
+  }
+  a {
+    display: block;
+    padding: 2em;
+    color: #646669;
+    text-decoration: none;
+  }
+}
+
+.main__title {
+  margin-bottom: 2em;
+}
+
+.dashboard__item {
+  text-align: center;
+  background: white;
+}
+
+.dashboard__item-inner {
+  padding: 2em;
+}

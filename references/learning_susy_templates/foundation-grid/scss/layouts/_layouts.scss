@@ -1,0 +1,143 @@
+// ==========
+// LAYOUTS
+// ==========
+
+$susy: (
+  columns: 12,
+  output: isolate,
+  global-box-sizing: border-box,
+  debug: (image: hide));
+
+// Here are the medium and large breakpoints used in this map.
+$breakpoints: (
+  med: 770px, large: 1080px
+  );
+
+.wrap {
+  @include container(1140px);
+}
+
+// Grid pattern 1
+.pattern-1 {
+  @include cf;
+  .susy-grid-item {
+    margin-bottom: gutter();
+    @include bp(med) {
+      &:nth-child(3n+1) {
+        @include span(3 first);
+      }
+      &:nth-child(3n+2) {
+        @include span(6 at 4);
+      }
+      &:nth-child(3n+3) {
+        @include span(3 last);
+      }
+    }
+  }
+}
+
+.pattern-2 {
+  @include cf;
+  .susy-grid-item {
+    margin-bottom: gutter();
+    @include bp(med) {
+      &:nth-child(3n+1) {
+        @include span(6 first);
+      }
+      &:nth-child(3n+2) {
+        @include span(2 at 7);
+      }
+      &:nth-child(3n+3) {
+        @include span(4 last);
+      }
+    }
+  }
+}
+
+.pattern-3 {
+  @include cf;
+  .susy-grid-item {
+    margin-bottom: gutter();
+    @include bp(med) {
+      &:nth-child(3n+1) {
+        @include span(4 first);
+      }
+      &:nth-child(3n+2) {
+        @include span(4 at 5);
+      }
+      &:nth-child(3n+3) {
+        @include span(4 last);
+      }
+    }
+  }
+}
+
+.pattern-4 {
+  @include cf;
+  .susy-grid-item {
+    margin-bottom: gutter();
+    @include bp(med) {
+      &:nth-child(3n+1) {
+        @include span(3 first);
+      }
+      &:nth-child(3n+2) {
+        @include span(4 at 4);
+      }
+      &:nth-child(3n+3) {
+        @include span(5 last);
+      }
+    }
+  }
+}
+
+.pattern-5 {
+  @include cf;
+  .susy-grid-item {
+    margin-bottom: gutter();
+    @include bp(med) {
+      &:nth-child(3n+1) {
+        @include span(2 first);
+      }
+      &:nth-child(3n+2) {
+        @include span(3 at 3);
+      }
+      &:nth-child(3n+3) {
+        @include span(7 last);
+      }
+    }
+  }
+}
+
+// Misc Styles
+
+.site-header {
+  @include cf;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  line-height: 3em;
+  background: #333333;
+  color: white;
+  a {
+    color: white;
+  }
+  .logo {
+    float: left;
+  }
+  nav {
+    @include cf;
+    float: right;
+    li {
+      float: left;
+      margin-left: 1em;
+    }
+  }
+}
+
+.susy-grid-item {
+  background: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 1em;
+  @include bp(med) {
+    height: 9em;
+  }
+}

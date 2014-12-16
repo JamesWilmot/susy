@@ -1,0 +1,63 @@
+// ==========
+// LAYOUTS
+// ==========
+
+// This layout
+// - is non-responsive
+// - has off center alignment
+
+$susy: (
+  columns: 12,
+  container-position: left,
+  global-box-sizing: border-box,
+  debug: (image: hide)
+  );
+
+// Creating the container
+.wrap {
+  @include container(1140px);
+  // Set min-width to max-width to prevent reponsive
+  min-width: 1140px;
+
+}
+
+.gallery {
+  @include cf;
+}
+
+.gallery__item {
+  @include gallery(6);
+  p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+}
+
+// Misc Styles
+
+body {
+  background: #efefef;
+  padding-left: 3em;
+}
+
+.logo {
+  float: left;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+nav {
+  float: right;
+  ul {
+    @include cf;
+  }
+  li {
+    float: left;
+    margin: 2em 0.5em 1em;
+  }
+}
+
+.gallery {
+  background: white;
+  padding: 1em;
+}

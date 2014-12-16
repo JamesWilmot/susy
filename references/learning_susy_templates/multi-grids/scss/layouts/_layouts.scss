@@ -1,0 +1,101 @@
+// ==========
+// LAYOUTS
+// ==========
+
+// This layout
+// - has multiple breakpoints
+// - shows different number of elements per row on each breakpoint
+// - Changes number of columns per breakpoint
+// - has some items removed from view in the grid
+//
+// Inspired by http://brazilfourteen.com
+
+$breakpoints: (two: 440px, three: 540px, four: 690px, five: 840px, six: 990px, seven: 1140px);
+
+$susy: (columns: 1, global-box-sizing: border-box, debug: (image: hide));
+
+// Creating the container
+.wrap {
+  @include container(1140px);
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.days__list {
+  margin-bottom: gutter();
+  @include bp(two) {
+    @include nested(2) {
+      @include gallery(1);
+      margin-bottom: gutter();
+    }
+  }
+
+  @include bp(three) {
+    @include nested(3) {
+      @include gallery(1);
+      margin-bottom: gutter();
+    }
+  }
+
+  @include bp(four) {
+    @include nested(4) {
+      @include gallery(1);
+      margin-bottom: gutter();
+    }
+  }
+
+  @include bp(five) {
+    @include nested(5) {
+      @include gallery(1);
+      margin-bottom: gutter();
+    }
+  }
+
+  @include bp(six) {
+    @include nested(6) {
+      @include gallery(1);
+      margin-bottom: gutter();
+    }
+  }
+
+  @include bp(seven) {
+    @include nested(7) {
+      @include gallery(1);
+      margin-bottom: gutter();
+    }
+  }
+}
+
+// Removes certain items from view
+.days__list {
+  &:nth-child(2),
+  &:nth-child(7),
+  &:nth-child(13),
+  &:nth-child(16),
+  &:nth-child(21),
+  &:nth-child(21),
+  &:nth-child(30),
+  &:nth-child(31),
+  &:nth-child(54),
+  &:nth-child(67),
+  &:nth-child(69) {
+    display: none;
+    @include breakpoint(two) {
+      display: block;
+      opacity: 0;
+    }
+  }
+}
+
+// Misc Styles
+
+.days__list {
+  height: 10em;
+  background: #333;
+  color: white;
+}
+
+.days__content {
+  font-size: 20px;
+  padding: 1em;
+}
