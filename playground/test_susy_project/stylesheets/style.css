@@ -1,10 +1,52 @@
 /* line 6, ../sass/style.scss */
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 11, ../sass/style.scss */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 16, ../sass/style.scss */
+.site-header, .site-footer {
+  background: rgba(234, 159, 195, 0.8);
+}
+
+/* line 21, ../sass/style.scss */
+.site-header a {
+  color: #555;
+  text-decoration: none;
+}
+
+/* line 27, ../sass/style.scss */
+.logo {
+  float: left;
+  line-height: 2rem;
+  font-size: 1.5rem;
+}
+
+/* line 33, ../sass/style.scss */
+nav {
+  float: right;
+}
+/* line 36, ../sass/style.scss */
+nav li {
+  list-style: none;
+  float: left;
+  margin-left: 1em;
+  line-height: 2rem;
+}
+
+/* line 44, ../sass/style.scss */
 .wrap {
   max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
   background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25) 80%, transparent 80%);
-  background-size: 26.31579%;
+  background-size: 6.32911%;
   background-origin: content-box;
   background-clip: content-box;
   background-position: left top;
@@ -16,37 +58,58 @@
   clear: both;
 }
 
-/* line 11, ../sass/style.scss */
+/* line 49, ../sass/style.scss */
 .content {
-  margin-top: 10vh;
-  height: 80vh;
+  margin-top: 5vh;
+  padding-bottom: 1rem;
   background: rgba(113, 218, 210, 0.8);
 }
 
-/* line 17, ../sass/style.scss */
+/* line 56, ../sass/style.scss */
 .sidebar {
-  margin-top: 10vh;
-  height: 40vh;
+  margin-top: 5vh;
   background: rgba(250, 231, 179, 0.8);
+  padding-bottom: 1rem;
+}
+/* line 60, ../sass/style.scss */
+.sidebar li {
+  list-style: none;
+}
+/* line 62, ../sass/style.scss */
+.sidebar li a {
+  color: #666;
+  padding-left: 1rem;
+  line-height: 2;
+  text-decoration: none;
 }
 
-/* line 23, ../sass/style.scss */
+/* line 71, ../sass/style.scss */
 h2 {
   padding: 1rem 0;
   text-align: center;
   color: #555;
 }
 
-/* line 30, ../sass/style.scss */
+/* line 78, ../sass/style.scss */
 .content {
   width: 73.68421%;
   float: left;
   margin-right: 5.26316%;
 }
 
-/* line 34, ../sass/style.scss */
+/* line 82, ../sass/style.scss */
 .sidebar {
   width: 21.05263%;
   float: right;
   margin-right: 0;
+}
+
+/* line 86, ../sass/style.scss */
+.widget {
+  background: rgba(240, 150, 113, 0.8);
+}
+
+/* line 90, ../sass/style.scss */
+.site-footer {
+  margin-top: 5vh;
 }
